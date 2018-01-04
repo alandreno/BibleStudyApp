@@ -9,6 +9,14 @@ export default class SideBar extends React.Component {
     return (
       <Container>
         <Content>
+        <Image
+            source={require('C:\repos\BibleStudyApp\content\images\snow-trees-fade.jpg')}
+            style={{
+              height: 120,
+              alignSelf: "stretch",
+              justifyContent: "center",
+              alignItems: "center"
+            }} />
           <List
             dataArray={routes}
             renderRow={data => {
