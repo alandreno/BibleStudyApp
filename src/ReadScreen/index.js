@@ -5,7 +5,7 @@ import CreateStudyScreen from "../CreateStudyScreen/CreateStudyScreen.js";
 import SideBar from "../SideBar/SideBar.js";
 import { DrawerNavigator } from "react-navigation";
 
-const HomeScreenRouter = DrawerNavigator(
+const ReadScreenRouter = DrawerNavigator(
   {
     Home: { screen: HomeScreen },
     Read: { screen: ReadScreen },
@@ -20,4 +20,4 @@ const HomeScreenRouter = DrawerNavigator(
     //-----------------------------------------------------------------------------------------------------------------------------------
   }
 );
-export default HomeScreenRouter;
+export default ReadScreenRouter;
