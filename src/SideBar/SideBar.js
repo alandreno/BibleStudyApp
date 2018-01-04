@@ -10,9 +10,10 @@ export default class SideBar extends React.Component {
       <Container>
         <Content>
         <Image
-            source={require('C:\repos\BibleStudyApp\content\images\snow-trees-fade.jpg')}
+            source={require('./snow-trees-fade.jpg')}
             style={{
-              height: 120,
+              height: 190,
+              width:285,
               alignSelf: "stretch",
               justifyContent: "center",
               alignItems: "center"
