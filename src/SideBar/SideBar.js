@@ -1,5 +1,5 @@
 import React from "react";
-import { AppRegistry, Image, StatusBar, StyleSheet } from "react-native";
+import { AppRegistry, ImageBackground, StatusBar, StyleSheet } from "react-native";
 import { Container, Content, Text, List, ListItem } from "native-base";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -13,9 +13,11 @@ export default class SideBar extends React.Component {
     return (
       <Container>
         <Content>
-        <Image
+        <ImageBackground
             source={require('./snow-trees-fade.jpg')}
-            style={sideBarStyle.image} />
+            style={sideBarStyle.image}>
+              <Text style={sideBarStyle.heartText}>Good Evening, Alan</Text>
+            </ImageBackground>
           <List
             dataArray={routes}
             renderRow={data => {
@@ -50,5 +52,10 @@ const sideBarStyle = StyleSheet.create({
     alignSelf: "stretch",
     justifyContent: "center",
     alignItems: "center"
-  } 
+  },
+  heartText: {
+    color: 'white', 
+    fontSize: 25, 
+    fontFamily: "AvenirNext-UltraLight"
+  }
 });
