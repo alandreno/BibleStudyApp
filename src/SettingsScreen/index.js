@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import ReadScreen from "./ReadScreen.js";
+import ReadScreen from "../ReadScreen/ReadScreen.js";
 import HomeScreen from "../HomeScreen/HomeScreen.js";
 import CreateStudyScreen from "../CreateStudyScreen/CreateStudyScreen.js";
-import SettingsScreen from "../SettingsScreen/SettingsScreen.js";
+import SettingsScreen from "./SettingsScreen.js";
 import SideBar from "../SideBar/SideBar.js";
 import { DrawerNavigator } from "react-navigation";
 
-const ReadScreenRouter = DrawerNavigator(
+const SettingsScreenRouter = DrawerNavigator(
   {
     Home: { screen: HomeScreen },
     Read: { screen: ReadScreen },
@@ -22,4 +22,4 @@ const ReadScreenRouter = DrawerNavigator(
     //-----------------------------------------------------------------------------------------------------------------------------------
   }
 );
-export default ReadScreenRouter;
+export default SettingsScreenRouter;

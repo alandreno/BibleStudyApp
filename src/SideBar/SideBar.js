@@ -5,7 +5,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 const routes = [{title:"Home", page:"Home", icon:"home"}, 
                 {title:"Read", page:"Read",icon:"book"} ,
-                {title:"Create Study", page:"plus-square-o", icon:"home"}]
+                {title:"Create Study", page:"CreateStudy", icon:"plus-square-o"},
+                {title:"Settings", page:"Settings", icon:"gear"}]
 
 export default class SideBar extends React.Component {
   render() {
