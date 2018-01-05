@@ -1,8 +1,11 @@
 import React from "react";
-import { AppRegistry, Image, StatusBar } from "react-native";
+import { AppRegistry, Image, StatusBar, StyleSheet } from "react-native";
 import { Container, Content, Text, List, ListItem } from "native-base";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-const routes = ["Home", "Read", "CreateStudy"];
+const routes = [{title:"Home", page:"Home", icon:"home"}, 
+                {title:"Read", page:"Read",icon:"book"} ,
+                {title:"Create Study", page:"plus-square-o", icon:"home"}]
 
 export default class SideBar extends React.Component {
   render() {
@@ -11,21 +14,16 @@ export default class SideBar extends React.Component {
         <Content>
         <Image
             source={require('./snow-trees-fade.jpg')}
-            style={{
-              height: 190,
-              width:285,
-              alignSelf: "stretch",
-              justifyContent: "center",
-              alignItems: "center"
-            }} />
+            style={sideBarStyle.image} />
           <List
             dataArray={routes}
             renderRow={data => {
               return (
                 <ListItem
                   button
-                  onPress={() => this.props.navigation.navigate(data)}>
-                  <Text>{data}</Text>
+                  onPress={() => this.props.navigation.navigate(data.page)}>
+                  <Icon name={data.icon} style={sideBarStyle.icon} />
+                  <Text style={sideBarStyle.text}>{data.title}</Text>
                 </ListItem>
               );
             }}
@@ -35,3 +33,21 @@ export default class SideBar extends React.Component {
     );
   }
 }
+
+const sideBarStyle = StyleSheet.create({
+  text: {
+    color: 'gray'
+  },
+  icon : {
+    marginRight: 10,
+    fontSize: 20,
+    color: 'gray'
+  },
+  image: {
+    height: 190,
+    width:285,
+    alignSelf: "stretch",
+    justifyContent: "center",
+    alignItems: "center"
+  } 
+});
