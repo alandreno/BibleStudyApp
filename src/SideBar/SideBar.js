@@ -1,33 +1,37 @@
 import React from "react";
-import { AppRegistry, ImageBackground, StatusBar, StyleSheet } from "react-native";
+import { AppRegistry, ImageBackground, StatusBar, StyleSheet, TouchableOpacity, Dimensions } from "react-native";
 import { Container, Content, Text, List, ListItem } from "native-base";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const routes = [{title:"Home", page:"Home", icon:"home"}, 
-                {title:"Read", page:"Read",icon:"book"} ,
-                {title:"Create Study", page:"CreateStudy", icon:"plus-square-o"},
-                {title:"Settings", page:"Settings", icon:"gear"}]
+const routes = [{title:"Home", page:"Home", icon:"home", backgroundImage: require("./bw-cloudy-mountains.jpeg")}, 
+                {title:"Read", page:"Read",icon:"book", backgroundImage: require("./person-reading.jpg")} ,
+                {title:"Search", page:"Search",icon:"search", backgroundImage: require("./binoculars.jpeg")} ,
+                {title:"Create Study", page:"CreateStudy", icon:"plus-square-o", backgroundImage: require("./snow-trees-fade.jpg")},
+                {title:"Settings", page:"Settings", icon:"gear", backgroundImage: require("./mountains.jpeg")}]
+
+var windowHeight = Dimensions.get('window').height;
 
 export default class SideBar extends React.Component {
   render() {
     return (
       <Container>
-        <Content>
-        <ImageBackground
-            source={require('./snow-trees-fade.jpg')}
-            style={sideBarStyle.image}>
-              <Text style={sideBarStyle.heartText}>Good Evening, Alan</Text>
-            </ImageBackground>
+        <Content>        
           <List
             dataArray={routes}
             renderRow={data => {
               return (
-                <ListItem
-                  button
-                  onPress={() => this.props.navigation.navigate(data.page)}>
-                  <Icon name={data.icon} style={sideBarStyle.icon} />
-                  <Text style={sideBarStyle.text}>{data.title}</Text>
-                </ListItem>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate(data.page)}>
+                  <ImageBackground
+                    source={data.backgroundImage}
+                    style={sideBarStyle.image}>
+                    <Container style={sideBarStyle.outerContainer}>
+                      <Container style={sideBarStyle.innerContainer}>
+                        <Icon name={data.icon} style={sideBarStyle.icon} />
+                        <Text style={sideBarStyle.text}>{data.title}</Text>
+                      </Container>
+                    </Container>
+                  </ImageBackground>
+                </TouchableOpacity>
               );
             }}
           />
@@ -39,23 +43,28 @@ export default class SideBar extends React.Component {
 
 const sideBarStyle = StyleSheet.create({
   text: {
-    color: 'gray'
+    color: 'white',
+    backgroundColor: 'transparent',
+    fontSize: 30
   },
   icon : {
     marginRight: 10,
-    fontSize: 20,
-    color: 'gray'
+    fontSize: 40,
+    color: 'white',
+    backgroundColor: 'transparent'
   },
   image: {
-    height: 190,
-    width:285,
-    alignSelf: "stretch",
-    justifyContent: "center",
-    alignItems: "center"
+    height: windowHeight / 5
   },
-  heartText: {
-    color: 'white', 
-    fontSize: 25, 
-    fontFamily: "AvenirNext-UltraLight"
+  outerContainer: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  innerContainer:{
+    flex:1,
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'center',
+    height: 40
   }
 });
