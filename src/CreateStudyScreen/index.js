@@ -3,6 +3,7 @@ import ReadScreen from "../ReadScreen/ReadScreen.js";
 import HomeScreen from "../HomeScreen/HomeScreen.js";
 import CreateStudyScreen from "./CreateStudyScreen.js";
 import SettingsScreen from "../SettingsScreen/SettingsScreen.js";
+import SearchScreen from "../SearchScreen/SearchScreen.js"
 import SideBar from "../SideBar/SideBar.js";
 import { DrawerNavigator } from "react-navigation";
 
@@ -11,7 +12,8 @@ const CreateStudyScreenRouter = DrawerNavigator(
     Home: { screen: HomeScreen },
     Read: { screen: ReadScreen },
     CreateStudy: { screen: CreateStudyScreen },
-    Settings: {screen: SettingsScreen }
+    Settings: {screen: SettingsScreen },
+    Search: {screen: SearchScreen}
   },
   {
     contentComponent: props => <SideBar {...props} />,
